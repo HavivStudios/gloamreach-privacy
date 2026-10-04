@@ -2,7 +2,7 @@
 
 **App:** Gloamreach (`com.havivstudios.gloamreach`)
 **Publisher:** Adi Haviv
-**Contact:** adi.haviv@gmail.com
+**Contact:** havivgamestudios@gmail.com
 **Effective:** 2026-10-04
 **Version of this document:** 2 (see [Changes](#changes) at the end)
 
@@ -110,10 +110,11 @@ without you tapping for it.
 - **The advertising ID.** AdMob reads your device's Google advertising ID, which is what
   the `com.google.android.gms.permission.AD_ID` permission in the installed app is for.
   It is Google's identifier, resettable and deletable by you.
-- **How to change your mind.** Android's own **Settings > Privacy > Ads** lets you
-  delete your advertising ID or opt out of personalisation, and the game honours it.
-  Gloamreach does not yet carry an in-game control to reopen the consent form; that is
-  listed as remaining hardening in `Docs/store/SETUP.md`.
+- **How to change your mind.** Where the law gives you a standing right to change your
+  consent answer (the EEA, the UK and Switzerland, as Google's consent SDK reports it),
+  the game's Settings sheet shows **Ad privacy choices**, which reopens the same consent
+  form. Everywhere, Android's own **Settings > Privacy > Ads** lets you delete your
+  advertising ID or opt out of personalisation, and the game honours it.
 - **Pre-launch builds show Google's test adverts**, not real ones - `storeconfig.json`
   ships with Google's sample ad unit ids and a test flag, and `StoreConfigTests` fails
   if that stops being true before go-live.
@@ -156,7 +157,8 @@ content rating this app declares and the questionnaire answers behind it are in
 
 - Turn **Cloud off** in Settings, or simply never sign in to Play Games - nothing is
   uploaded either way.
-- Decline personalised adverts in AdMob's consent form, where it is shown.
+- Decline personalised adverts in AdMob's consent form, where it is shown - and change
+  that answer later from Settings > **Ad privacy choices** where it is offered.
 - Delete or opt out of your advertising ID in Android's **Settings > Privacy > Ads**.
 - **Delete save** in Settings wipes the game on this device and starts it over.
 - Uninstall Gloamreach and Android removes every file listed above.
@@ -166,7 +168,7 @@ content rating this app declares and the questionnaire answers behind it are in
 
 ## Contact
 
-Questions, or a request about data this app holds: **adi.haviv@gmail.com**. There is no
+Questions, or a request about data this app holds: **havivgamestudios@gmail.com**. There is no
 account to close and no server of ours to delete you from - the two levers that exist
 are the ones in the list above, and we will help you find them.
 
@@ -177,7 +179,7 @@ are the ones in the list above, and we will help you find them.
 | Date | Version | What changed |
 | --- | --- | --- |
 | 2026-08-24 | 1 | First published, alongside the first release build. |
-| 2026-10-04 | 2 | Corrected what AdMob receives and when: it starts at every launch to load an advert in advance, not only when you tap one, and it receives an approximate location from your IP address, app interactions and performance data as well as the advertising ID. Added the Play Games gamertag and avatar, and said that Play Games can sign you in automatically. Removed two sentences that said nothing leaves the phone unless you tap an advert, which were not true. |
+| 2026-10-04 | 2 | Corrected what AdMob receives and when: it starts at every launch to load an advert in advance, not only when you tap one, and it receives an approximate location from your IP address, app interactions and performance data as well as the advertising ID. Added the Play Games gamertag and avatar, and said that Play Games can sign you in automatically. Removed two sentences that said nothing leaves the phone unless you tap an advert, which were not true. Added the in-game **Ad privacy choices** control. Contact address changed to the studio's. |
 
 Any later change is a new row here and a new effective date at the top. A change that
 adds a service adds a row to *The services this game talks to* as well - and a table
