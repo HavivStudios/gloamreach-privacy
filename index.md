@@ -3,8 +3,8 @@
 **App:** Gloamreach (`com.havivstudios.gloamreach`)
 **Publisher:** Adi Haviv
 **Contact:** havivgamestudios@gmail.com
-**Effective:** 2026-11-06 (version 5 adds the iPhone version; the Android rows are unchanged since 2026-10-13)
-**Version of this document:** 5 (see [Changes](#changes) at the end)
+**Effective:** 2026-11-26 (version 6 names the two ad networks that bid through AdMob, from game version 1.9.0)
+**Version of this document:** 6 (see [Changes](#changes) at the end)
 
 This is the document that gets hosted at the address `storeconfig.json` calls
 `privacyPolicyUrl`, and that the game's Settings sheet opens under **Privacy policy**.
@@ -24,7 +24,9 @@ receives gameplay stats and crash reports so the game can be balanced and fixed 
 once the consent check allows it, never while the **Share gameplay stats** switch in Settings is off,
 and never for adverts; **Play Games**, if you sign in for cloud saves; and **Play Billing**,
 if you buy gems. AdMob is the one that runs whether or not you ever watch an advert, and
-the section on adverts below says exactly what it receives.
+the section on adverts below says exactly what it receives. From version 1.9.0, two other
+ad networks, **Unity Ads** and **Meta Audience Network**, can bid for that advert through
+AdMob; the same section says what they receive.
 
 ---
 
@@ -112,6 +114,16 @@ without you tapping for it.
   advance, so that an offer is ready the moment you reach it rather than after a wait.
   That means the AdMob SDK starts, and sends the data listed in the table above, even if
   you never watch an advert. Nothing is shown until you tap for it.
+- **Other networks that can bid (from version 1.9.0).** AdMob may ask two other ad
+  networks, **Unity Ads** (Unity Technologies) and **Meta Audience Network** (Meta
+  Platforms), to bid for the same rewarded advert; the one that wins shows it. Their
+  software is part of the game and starts alongside AdMob. Those networks receive the same
+  kinds of data AdMob does (your device's advertising ID, an approximate location from
+  your IP address, and how you interact with the advert) and use it under your consent
+  choices, which AdMob passes on to them. Unity's own disclosure adds device diagnostics,
+  the times the app is used, an identifier it assigns, and in-app purchase history.
+  Unity's and Meta's own privacy policies describe what they do with it. The game calls
+  neither network itself: it only ever asks AdMob for the advert.
 - **Consent is asked first.** Before AdMob starts, the game runs Google's UMP consent
   check and shows its consent form where the law requires one
   (`AdMobAdapter.EnsureConsentAndSdk`). Your answer decides whether adverts may be
@@ -224,9 +236,11 @@ Gloamreach has no login of its own and builds no profile of you. Its gameplay st
 tied to a random id, never to a name, an account or your advertising ID, and are used
 only to balance and fix the game. The game itself does not track you across apps or
 websites, does not sell or share data with data brokers, and has no advertising partners
-beyond AdMob; Firebase is not used for adverts. What AdMob does with the data it
+beyond AdMob and the two networks that bid through it, Unity Ads and Meta Audience
+Network (see *Adverts*); Firebase is not used for adverts. What AdMob does with the data it
 receives, including personalising adverts where your consent allows it, is described
-above and governed by Google's ad-data practices.
+above and governed by Google's ad-data practices; what Unity and Meta do with theirs is
+governed by their own privacy policies.
 
 ---
 
@@ -274,6 +288,7 @@ ones in the list above, and we will help you find them.
 | 2026-10-09 | 3 | Added Firebase (Analytics and Crashlytics), which version 1.0.4 of the game uses for gameplay stats and crash reports: what it receives, that nothing is kept before the consent check allows it, the new **Sharing stats** switch in Settings, how long the data is kept, and that it is never used for adverts. Removed "runs no analytics of its own", which stopped being true with 1.0.4. Versions 1.0.3 and earlier send nothing to Firebase. |
 | 2026-10-13 | 4 | Version 1.1.0 names the two Settings switches by what they are - **Share gameplay stats** (1.0.4 called it **Sharing stats on/off**) and **Cloud sync** (was **Cloud on/off**) - and shows on or off by the switch itself. Nothing about what is collected or sent changed. |
 | 2026-11-05 | 5 | Added *On iPhone*: Game Center sign-in and saves in your private iCloud database, **Delete iCloud save**, App Store purchases and **Restore purchases**, Apple's tracking prompt and what refusing it means. It takes effect with the first iPhone release; nothing about the Android version changed. |
+| 2026-11-26 | 6 | Named the two ad networks that bid through AdMob from version 1.9.0 of the game, **Unity Ads** and **Meta Audience Network**: that their software is part of the game and starts alongside AdMob, what they receive, and that they act under the consent choices AdMob passes on. Replaced "no advertising partners beyond AdMob" accordingly. Versions 1.8.1 and earlier contain neither network. |
 
 Any later change is a new row here and a new effective date at the top. A change that
 adds a service adds a row to *The services this game talks to* as well - and a table
